@@ -4,8 +4,9 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	// "fmt"
+	"fmt"
 	"log"
+	"math/rand"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -15,13 +16,14 @@ import (
 // randomCmd represents the random command
 var randomCmd = &cobra.Command{
 	Use:   "random",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Prints out a random quote from marx, engels, or both!",
+	Long: 
+	`
+Prints out random quotations from marx, engels, or both.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Usage :
+marxsays random
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		marxQuotesJSON, err := os.ReadFile("./bin/marxAndEngels.json")
@@ -34,15 +36,10 @@ to quickly create a Cobra application.`,
 		value := gjson.Get(marxQutoesString, "marx.#.quote")
 		valueJson := value.Array()
 
-		log.Fatal(valueJson[2])
+		randomQuoteIndex := rand.Intn(100)
 
-		// log.Fatal(marxQutoesString)
-
-		// const json = `{"name":{"first":"Janet","last":"Prichard"},"age":47}`
-
-		// value := gjson.Get(json, "name.last")
-		// println(value.String())
-
+		fmt.Printf("Marx once said... \n %q", valueJson[randomQuoteIndex])
+		fmt.Println("")
 	},
 }
 

@@ -22,9 +22,7 @@ marxsays is a clone of cowsay that outputs randomly selected marxist quotes comp
 Usage :
 	marxsays
 	marxsays [message] (for custom messages)
-			
-Flags :
-	-h, --help		help for marxsays`,
+		  `,
 		  
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
