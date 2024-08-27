@@ -1,5 +1,6 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+
 */
 package cmd
 
@@ -13,36 +14,34 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-// randomCmd represents the random command
-var randomCmd = &cobra.Command{
-	Use:   "random",
-	Short: "Prints out a random quote from Karl Marx!.",
-	Long: 
-	`
-Prints out random quotations from marx
+// engelsCmd represents the engels command
+var engelsCmd = &cobra.Command{
+	Use:   "engels",
+	Short: "Outputs random quotes from Friedrich Engels!",
+	Long: `
+Outputs random quotes from Friedrich Engels!
 
 Usage :
-marxsays random
+marxsays engels
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-
-		marxQuotesJSON, err := os.ReadFile("./bin/marxAndEngels.json")
+		engelsQuotesJSON, err := os.ReadFile("./bin/marxAndEngels.json")
 		if err != nil {
 			log.Fatal("Error when reading json file: ", err)
 		}
 
-		marxQuotesString := string(marxQuotesJSON[:])
+		engelsQutoesString := string(engelsQuotesJSON[:])
 
-		valueMarxQuote := gjson.Get(marxQuotesString, "marx.#.quote")
-		valueMarxJSON := valueMarxQuote.Array()
+		valueEngelsQuote := gjson.Get(engelsQutoesString, "engels.#.quote")
+		valueEngelsJSON := valueEngelsQuote.Array()
 
-		valueMarxQuoteSource := gjson.Get(marxQuotesString, "marx.#.source")
+		valueMarxQuoteSource := gjson.Get(engelsQutoesString, "engels.#.source")
 		valueMarxSourceJSON := valueMarxQuoteSource.Array()
 
-		randomQuoteIndex := rand.Intn(143)
+		randomQuoteIndex := rand.Intn(42)
 
 		fmt.Printf("_____")
-		fmt.Printf("\n Cow Marx once said... \n \n %q",valueMarxJSON[randomQuoteIndex])
+		fmt.Printf("\n Cow Engels once said... \n \n %q",valueEngelsJSON[randomQuoteIndex])
 		fmt.Print("\n \n",valueMarxSourceJSON[randomQuoteIndex])
 		fmt.Println("\n _____")
 	
@@ -66,15 +65,15 @@ marxsays random
 }
 
 func init() {
-	rootCmd.AddCommand(randomCmd)
+	rootCmd.AddCommand(engelsCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// randomCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// engelsCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// randomCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// engelsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
