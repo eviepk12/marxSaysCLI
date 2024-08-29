@@ -17,7 +17,7 @@ import (
 // maoCmd represents the mao command
 var maoCmd = &cobra.Command{
 	Use:   "mao",
-	Short: "Outputs random quotes from Mao Zedong!",
+	Short: "Outputs random quotes from Mao Zedong",
 	Long: `
 Outputs random Mao Quotes
 
@@ -39,10 +39,10 @@ marxsays mao
 		valueMaoQuoteSource := gjson.Get(maoQuotesString, "mao.#.source")
 		valueMaoSourceJSON := valueMaoQuoteSource.Array()
 
-		randomQuoteIndex := rand.Intn(150)
+		randomQuoteIndex := rand.Intn(147)
 
 		fmt.Printf("_____")
-		fmt.Printf("\n Cow Mao once said... \n \n %q",valueMaoJSON[randomQuoteIndex])
+		fmt.Printf("\n Cow Mao once said... \n \n %q",valueMaoJSON[147])
 		fmt.Print("\n \n",valueMaoSourceJSON[randomQuoteIndex])
 		fmt.Println("\n _____")
 	

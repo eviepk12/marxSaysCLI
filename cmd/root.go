@@ -18,14 +18,6 @@ var rootCmd = &cobra.Command{
 	Short: "Cowsay but it says marxists/communist quotes.",
 	Long: `
 marxsays is a clone of cowsay that outputs randomly selected marxist quotes compiled together.
-
-Usage :
-	marxsays [options]
-
-Options :
-	marxsays random (outputs random quotes from Karl Marx)
-	marxsays mao (outputs random quotes from Mao Zedong)
-	marxsays engels (outputs random quotes from Friedrich Engels)
 		  `,
 		  
 	// Uncomment the following line if your bare application

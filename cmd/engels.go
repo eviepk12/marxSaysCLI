@@ -17,7 +17,7 @@ import (
 // engelsCmd represents the engels command
 var engelsCmd = &cobra.Command{
 	Use:   "engels",
-	Short: "Outputs random quotes from Friedrich Engels!",
+	Short: "Outputs random quotes from Friedrich Engels",
 	Long: `
 Outputs random quotes from Friedrich Engels!
 
